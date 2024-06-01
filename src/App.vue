@@ -1,6 +1,6 @@
 
 <template>
-  <div class=" bg-red-400">Saba</div>
+  <div class=" bg-cusred">Saba</div>
 </template>
 
 <script >
