@@ -22,7 +22,9 @@
             </div>
             <button class="bg-cusred mt-3 py-3 rounded-lg hover:bg-white hover:text-black">Login to your account</button>
         </form>
-        <p class="text-center">Don't have an account? <span class="text-cusred">signup</span></p>
+        <p v-if="mode == 'login'" class="text-center">Don't have an account? <span @click="switchMode" class="text-cusred cursor-pointer">Sign Up</span></p>
+        <p v-else class="text-center">Already have an account? <span @click="switchMode" class="text-cusred cursor-pointer">Login</span></p>
+
     </div>
   </div>
 </template>
@@ -36,5 +38,15 @@ export default{
             password:'',
         }
     },
+    methods:{
+        switchMode(){
+            if(this.mode == 'login'){
+                this.mode = 'signup'
+            }
+            else{
+                this.mode = 'login'
+            }
+        }
+    }
 }
 </script>
