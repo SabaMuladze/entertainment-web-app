@@ -1,6 +1,6 @@
 <template>
-    <div class=" md:p-5">
-        <header class="bg-cusdarkblue p-5 flex justify-between items-center md:rounded-lg  md:relative">
+    <div class="md:p-5">
+        <header class="bg-cusdarkblue p-5 flex justify-between items-center md:rounded-lg  md:relative xl:flex-col xl:h-full">
     <div>
       <svg class="" width="33" height="27" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -10,7 +10,7 @@
       </svg>
     </div>
     <div>
-      <ul class="flex gap-5">
+      <ul class="flex gap-5 xl:flex-col">
         <li>
           <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg">
             <path
