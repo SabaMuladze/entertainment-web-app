@@ -8,7 +8,7 @@
         />
       </svg>
     </header>
-    <div class="flex flex-col p-7 bg-cusdarkblue rounded-md gap-3 justify-center mt-12 w-full  md:max-w-[400px] md:p-10 md:mt-20 md:gap-5">
+    <div class="flex flex-col p-7 bg-cusdarkblue rounded-md gap-3 justify-center mt-12 w-full  max-w-[400px] md:p-10 md:mt-20 md:gap-5">
         <h2 v-if="mode == 'login'" class="text-3xl md:text-4xl">Login</h2>
         <h2 v-else class="text-3xl md:text-4xl">Sign Up</h2>
 
