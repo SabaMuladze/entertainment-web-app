@@ -1,8 +1,9 @@
 
 <template>
-  <div class="w-full min-h-[100vh] bg-cusdark">
+  <div class="w-full min-h-[100vh] bg-cusdark flex flex-col">
+    <Header v-if="isAuthPath"></Header>
     <router-view>
-      <Header></Header>
+
     </router-view>
   </div>
 </template>
@@ -12,6 +13,11 @@ import Header from './components/Header.vue';
 export default{
   components:{
 Header
+  },
+  computed: {
+    isAuthPath() {
+      return this.$route.path != '/auth';
+    }
   }
 }
 </script>

@@ -1,5 +1,6 @@
 <template>
-  <header class="bg-cusdarkblue p-5 flex justify-between items-center">
+    <div class=" md:p-5">
+        <header class="bg-cusdarkblue p-5 flex justify-between items-center md:rounded-lg  md:relative">
     <div>
       <svg class="" width="33" height="27" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -48,4 +49,5 @@
         <img class="w-6 h-6 md:w-8 md:h-8 xl:w-10 xl:h-10" src="../../public/image-avatar.png" alt="">
     </div>
   </header>
+    </div>
 </template>
