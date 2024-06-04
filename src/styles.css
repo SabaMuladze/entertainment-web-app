@@ -6,6 +6,22 @@
   padding: 0;
   box-sizing: border-box;
   color:white;
+  
+}
+
+.swiper {
+  width: 100%;
+}
+
+.mySwiper{
+}
+.swiper-slide img {
+  display: block;
+  background:cover;
+  min-height:140px;
+  
+  object-fit: cover;
+  
 }
 
 
