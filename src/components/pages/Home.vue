@@ -3,7 +3,6 @@
         <div>
             <swiper 
     :spaceBetween="10"
-    :onReachEnd="5"
     :pagination="{
       clickable: true,
     }"
@@ -14,16 +13,16 @@
         spaceBetween: 10,
       },
       '@0.75': {
-        slidesPerView: 2.2,
+        slidesPerView: 2,
         spaceBetween: 20,
       },
       }"
+      reachEnd="2"
     class="mySwiper"
              >
-                <SwiperSlide v-for="(trending) in moviesData" :key="trending.title">
+                <SwiperSlide v-for="(trending) in trendings" :key="trending.title">
                         <img class="rounded-lg min-w-[230px] max-w-[260px] md:hidden" v-if="trending.isTrending == true && small " :src="trending.thumbnail.trending.small" alt="">
-                        <img class="rounded-lg hidden" v-if="trending.isTrending == true && large" :src="trending.thumbnail.trending.large" alt="">
-
+                        <img class="rounded-lg hidden" v-else-if="trending.isTrending == true && large" :src="trending.thumbnail.trending.large" alt="">
                 </SwiperSlide>
             </swiper>
         </div>
@@ -41,6 +40,7 @@ export default{
     data() {
         return {
             moviesData:data,
+            trendings: [],
         }
     },
     components:{
@@ -55,9 +55,12 @@ export default{
            return screen.width >= 768
         }
     },
+    created(){
+    const trendings = this.moviesData.filter(data => data.isTrending)
+     this.trendings = trendings
+    },
     mounted(){
-
-        console.log(screen.width < 768);
+        console.log(this.trendings);
     }
 }
 </script>
