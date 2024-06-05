@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col  items-center h-[100vh] p-6">
+  <div class=" w-full flex flex-col  items-center h-[100vh] p-6">
     <header class="flex justify-center items-center">
       <svg class="mt-16" width="33" height="27" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -52,3 +52,4 @@ export default{
     }
 }
 </script>
+

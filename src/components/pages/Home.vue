@@ -1,6 +1,7 @@
 <template>
-    <div class=" xl:w-[90%] p-6 xl:pl-0 ">
+    <div class=" xl:w-full p-6 xl:pl-0 xl:overflow-x-hidden">
         <div>
+            <h2>Trending</h2>
             <swiper 
     :spaceBetween="10"
     :pagination="{
@@ -12,8 +13,12 @@
         slidesPerView: 1.2,
         spaceBetween: 10,
       },
+      '@0.50':{
+        slidesPerView:1.7,
+        spaceBetween:15,
+      },
       '@0.75': {
-        slidesPerView: 2,
+        slidesPerView: 2.2,
         spaceBetween: 20,
       },
       }"
@@ -66,10 +71,8 @@ export default{
 </script>
 
 
-<!-- <Swiper>
-                <swiper-slide v-for="(trending, index) in moviesData" :key="index">
-                    <div>
-                        <img :src="trending?.thumbnail?.trending.small" alt="">
-                    </div>
-                </swiper-slide>
-            </Swiper> -->
+<style scoped>
+h2{
+    @apply text-[20px] p-3 md:text-[32px] md:p-4
+}
+</style>
