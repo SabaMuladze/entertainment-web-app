@@ -21,12 +21,12 @@
       }"
     class="mySwiper"
              >
-                <SwiperSlide  v-for="(trending) in trendings" :key="trending.title">
-                        <img class="rounded-lg min-w-[230px] max-w-[260px] md:hidden" v-if="trending.isTrending == true && small " :src="trending.thumbnail.trending.small" alt="">
-                        <img class="rounded-lg hidden" v-else-if="trending.isTrending == true && large" :src="trending.thumbnail.trending.large" alt="">
-                        <div class="absolute bottom-0 p-5">
-                            <p>{{ trending.year}} {{ trending.category }} {{ trending.rating }}</p>
-                            <h3 class="text-[28px]" > {{ trending.title }}</h3>
+                <SwiperSlide   v-for="(trending) in trendings" :key="trending.title">
+                        <img class="rounded-lg min-w-[230px] max-w-[260px]  md:hidden" v-if="trending.isTrending == true && small " :src="trending.thumbnail.trending.small" alt="">
+                        <img class="rounded-lg max-md:hidden " v-else-if="trending.isTrending == true && large" :src="trending.thumbnail.trending.large" alt="">
+                        <div class=" w-full absolute bottom-0 p-5  bg-gradient-to-b from-transparent  to-black ">
+                            <p class="text-[12px] md:text-[16px] text-gray-400">{{ trending.year}} {{ trending.category }} {{ trending.rating }}</p>
+                            <h3 class="text-[15px] md:text-[28px]" > {{ trending.title }}</h3>
                         </div>
                 </SwiperSlide>
             </swiper>
