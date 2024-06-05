@@ -4,9 +4,6 @@
             <h2>Trending</h2>
             <swiper 
     :spaceBetween="10"
-    :pagination="{
-      clickable: true,
-    }"
     :modules="modules"
     :breakpoints="{
       '@0.00': {
@@ -22,12 +19,15 @@
         spaceBetween: 20,
       },
       }"
-      reachEnd="2"
     class="mySwiper"
              >
-                <SwiperSlide v-for="(trending) in trendings" :key="trending.title">
+                <SwiperSlide  v-for="(trending) in trendings" :key="trending.title">
                         <img class="rounded-lg min-w-[230px] max-w-[260px] md:hidden" v-if="trending.isTrending == true && small " :src="trending.thumbnail.trending.small" alt="">
                         <img class="rounded-lg hidden" v-else-if="trending.isTrending == true && large" :src="trending.thumbnail.trending.large" alt="">
+                        <div class="absolute bottom-0 p-5">
+                            <p>{{ trending.year}} {{ trending.category }} {{ trending.rating }}</p>
+                            <h3 class="text-[28px]" > {{ trending.title }}</h3>
+                        </div>
                 </SwiperSlide>
             </swiper>
         </div>

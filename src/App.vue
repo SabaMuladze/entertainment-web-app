@@ -22,5 +22,3 @@ Header
 }
 </script>
 
-<style scoped>
-</style>
