@@ -16,13 +16,14 @@
 .mySwiper img{
   height: 100%;
   width:100%;
+
 }
 .swiper-slide img {
   display: block;
   background:cover;
   min-height:140px;
+  max-height:300px;
   object-fit: cover;
+  
 }
 
-
-  
