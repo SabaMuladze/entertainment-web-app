@@ -6,8 +6,10 @@
   padding: 0;
   box-sizing: border-box;
   color:white;
-  
+  scrollbar-color: #5A698F #1e1e1e; 
+  scrollbar-width: medium
 }
+
 
 .swiper {
   width: 100%;
@@ -25,3 +27,24 @@
   object-fit: cover;
 }
 
+/* ::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+    }
+    
+    ::-webkit-scrollbar-track {
+      background: #1e1e1e;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background: #555;
+      border-radius: 20px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: #333;
+    }
+    
+    ::-webkit-scrollbar-corner {
+      background: #1e1e1e;
+    } */
