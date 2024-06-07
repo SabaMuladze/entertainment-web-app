@@ -14,7 +14,7 @@
 }
 
 .mySwiper img{
-  height: 100%;
+  height:100%;
   width:100%;
 
 }
@@ -22,8 +22,6 @@
   display: block;
   background:cover;
   min-height:140px;
-  max-height:300px;
   object-fit: cover;
-  
 }
 
