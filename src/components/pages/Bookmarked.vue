@@ -1,5 +1,5 @@
 <template>
     <div>
-      Movies
+        Bookmarked
     </div>
 </template>
