@@ -3,7 +3,6 @@
   <div class="w-full min-h-[100vh] bg-cusdark flex flex-col xl:flex-row">
     <Header v-if="isAuthPath"></Header>
     <router-view>
-
     </router-view>
   </div>
 </template>
@@ -23,7 +22,4 @@ Header
 </script>
 
 <style>
-body{
-  
-}
 </style>

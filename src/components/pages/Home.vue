@@ -3,12 +3,11 @@
         <div class="p-2 xl:pl-0">
             <div class="flex py-2 gap-2">
                 <img class="w-6 h-6 md:h-8 md:w-8" src="../../../public/icon-search.svg" alt="">
-                <input v-model="filterMovies" placeholder="Search for movies or TV series" class="bg-transparent w-80 outline-none" type="text">
+                <input @input="filter" v-model="filteredMovies"  placeholder="Search for movies or TV series" class="bg-transparent w-80 outline-none" type="text">
             </div>
             <h2>Trending</h2>
             <swiper 
     :spaceBetween="10"
-    :modules="modules"
     :breakpoints="{
       '@0.00': {
         slidesPerView: 1.2,
@@ -39,17 +38,17 @@
             </swiper>
         </div>
         <div>
-            <h2>Recommended for you</h2>
+            <h2 class="px-2">Recommended for you</h2>
             <div class="w-full flex flex-wrap">
-                <div class="relative w-[50%] md:w-[33%] lg:w-[25%] p-2" v-for="recommended in filterData " :key="recommended.title">
+                <div class="relative w-[50%] md:w-[33%] lg:w-[25%] p-2 lg:p-3" v-for="recommended in filteredData " :key="recommended.title">
                     <img class="rounded-lg  md:hidden"  :src="recommended.thumbnail.regular.small" alt="">
                     <img class="rounded-lg max-md:hidden " :src="recommended.thumbnail.regular.medium" alt="">
-                        <div class=" w-full rounded-lg   ">
+                        <div class=" w-full rounded-lg py-2  ">
                             <p class="text-[10px] md:text-[14px] text-gray-400 flex items-center gap-2">{{ recommended.year}}
                                 <img v-if="recommended.category == 'Movie'" src="../../../public/icon-category-movie.svg" alt="">
                                 <img v-else src="../../../public/icon-category-tv.svg" alt="">
                                  {{ recommended.category }} {{ recommended.rating }}</p>
-                            <h3 class="text-[15px] md:text-[18px] font-semibold" > {{ recommended.title }}</h3>
+                            <h3 class="text-[15px] md:text-[20px] font-semibold" > {{ recommended.title }}</h3>
                         </div>
                 </div>
             </div>
@@ -68,7 +67,9 @@ export default{
         return {
             moviesData:data,
             trendings: [],
-            filterData:[],
+            filteredData:[],
+            filteredMovies:'',
+            
         }
     },
     components:{
@@ -86,11 +87,16 @@ export default{
     created(){
     const trendings = this.moviesData.filter(data => data.isTrending)
      this.trendings = trendings
-     this.filterData = this.moviesData
-    //  this.filterData = this.moviesData.filter()
+     this.filteredData = this.moviesData
     },
     mounted(){
-        console.log(this.trendings);
+        console.log(this.filteredMovies);
+    },
+    methods:{
+        filter(){
+            console.log(this.filteredMovies);
+                 this.filteredData = this.moviesData.filter(movie => movie.title.toLowerCase().includes( this.filteredMovies.toLowerCase()))
+        }
     }
 }
 </script>
