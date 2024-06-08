@@ -1,10 +1,11 @@
 <template>
-    <div class=" xl:w-full  xl:pl-0 xl:overflow-x-hidden">
-        <div class="p-2 xl:pl-0">
-            <div class="flex py-2 gap-2">
+    <div class=" xl:w-full md:p-5  xl:pl-0 xl:overflow-x-hidden">
+        <div class="flex py-2 gap-2">
                 <img class="w-6 h-6 md:h-8 md:w-8" src="../../../public/icon-search.svg" alt="">
                 <input @input="filter" v-model="filteredMovies"  placeholder="Search for movies or TV series" class="bg-transparent w-80 outline-none" type="text">
             </div>
+        <h2 v-if="filteredMovies !== ''">Found {{ filteredData.length }} results for ‘{{ filteredMovies }}’</h2>
+        <div v-if="filteredMovies == ''" class="p-2 xl:pl-0">
             <h2>Trending</h2>
             <swiper 
     :spaceBetween="10"
