@@ -1,15 +1,20 @@
 <template>
   <div class="xl:w-full md:p-5 xl:pl-0 xl:overflow-x-hidden">
-    <Search @filtData="getData" :data="moviesData"></Search>
+    <Search
+      @filtData="getData"
+      @setInptutText="setFilteredMovies"
+      :data="moviesData"
+    ></Search>
     <h2 v-if="filteredMovies !== ''">
       Found {{ filteredData.length }} results for ‘{{ filteredMovies }}’
     </h2>
     <Trendings
+      v-if="filteredMovies == ''"
       :trendings="trendings"
       :filteredMovies="filteredMovies"
     ></Trendings>
     <div>
-      <h2 class="px-2">Recommended for you</h2>
+      <h2 v-if="filteredMovies == ''" class="px-2">Recommended for you</h2>
       <div class="w-full flex flex-wrap">
         <div
           class="relative w-[50%] md:w-[33%] lg:w-[25%] p-2 lg:p-3"
@@ -78,16 +83,14 @@ export default {
     this.trendings = trendings;
   },
   mounted() {
-    // console.log(this.filteredData);
+    console.log(this.filteredMovies);
   },
   methods: {
-    // filter(filtData, movData) {
-    //   filtData = movData.filter((movie) =>
-    //     movie.title.toLowerCase().includes(this.filteredMovies.toLowerCase())
-    //   );
-    // },
     getData(data) {
       this.filteredData = data;
+    },
+    setFilteredMovies(data) {
+      this.filteredMovies = data;
     },
   },
   provide() {

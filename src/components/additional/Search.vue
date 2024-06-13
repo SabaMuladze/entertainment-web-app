@@ -27,7 +27,7 @@ export default {
     };
   },
   props: ["value", "data"],
-  emits: ["update:value", "filtData"],
+  emits: ["update:value", "filtData", "setInptutText"],
   watch: {
     inputText(newVal) {
       this.$emit("update:value", newVal);
@@ -43,6 +43,7 @@ export default {
     },
     sendData() {
       this.$emit("filtData", this.filtdData);
+      this.$emit("setInptutText", this.inputText);
     },
   },
   created() {
