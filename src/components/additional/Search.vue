@@ -23,12 +23,10 @@ export default {
     return {
       inputText: this.value,
       filtdData: [],
-      movData: data,
+      movData: this.data,
     };
   },
-  props: {
-    value: String, // This will be used for v-model
-  },
+  props: ["value", "data"],
   emits: ["update:value", "filtData"],
   watch: {
     inputText(newVal) {

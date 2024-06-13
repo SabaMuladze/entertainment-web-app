@@ -1,11 +1,12 @@
 <template>
   <div class="xl:w-full md:p-5 xl:pl-0 xl:overflow-x-hidden">
+    <Search @filtData="getData" :data="filteredData"></Search>
     <div>
       <h2 class="px-2">Movies</h2>
       <div class="w-full flex flex-wrap">
         <div
           class="relative w-[50%] md:w-[33%] lg:w-[25%] p-2 lg:p-3"
-          v-for="movie in moviesData"
+          v-for="movie in filteredData"
           :key="movie.title"
         >
           <img
@@ -43,14 +44,26 @@
 
 <script>
 import data from "../../../data.json";
+import Search from "../additional/Search.vue";
 export default {
   data() {
     return {
       moviesData: data,
+      filteredData: [],
     };
   },
+  components: {
+    Search,
+  },
   created() {
-    this.moviesData = data.filter((movie) => movie.category == "Movie");
+    this.filteredData = this.moviesData.filter(
+      (movie) => movie.category == "Movie"
+    );
+  },
+  methods: {
+    getData(data) {
+      this.filteredData = data;
+    },
   },
 };
 </script>
