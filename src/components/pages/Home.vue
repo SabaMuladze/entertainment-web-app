@@ -18,7 +18,7 @@
     <h2 v-if="filteredMovies !== ''">
       Found {{ filteredData.length }} results for ‘{{ filteredMovies }}’
     </h2>
-    <div v-if="filteredMovies == ''" class="p-2 xl:pl-0">
+    <!-- <div v-if="filteredMovies == ''" class="p-2 xl:pl-0">
       <h2>Trending</h2>
       <swiper
         :spaceBetween="10"
@@ -92,7 +92,11 @@
           </div>
         </SwiperSlide>
       </swiper>
-    </div>
+    </div> -->
+    <Trendings
+      :trendings="trendings"
+      :filteredMovies="filteredMovies"
+    ></Trendings>
     <div>
       <h2 class="px-2">Recommended for you</h2>
       <div class="w-full flex flex-wrap">
@@ -140,6 +144,7 @@ import data from "../../../data.json";
 import "swiper/css";
 import "../../styles.css";
 import Search from "../additional/Search.vue";
+import Trendings from "../additional/Trendings.vue";
 
 export default {
   data() {
@@ -155,14 +160,7 @@ export default {
     Swiper,
     SwiperSlide,
     Search,
-  },
-  computed: {
-    small() {
-      return screen.width <= 768;
-    },
-    large() {
-      return screen.width >= 768;
-    },
+    Trendings,
   },
   created() {
     const trendings = this.moviesData.filter((data) => data.isTrending);

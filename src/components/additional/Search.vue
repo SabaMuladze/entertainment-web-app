@@ -13,7 +13,6 @@
       type="text"
     />
   </div>
-  <p>{{ inputText }}</p>
 </template>
 
 <script>
@@ -51,11 +50,10 @@ export default {
   created() {
     this.inputText = this.filteredMovies;
     this.filtdData = this.movData;
-    this.sendData();
+    // this.sendData();
   },
   mounted() {
-    console.log(this.inputText);
-    this.filter();
+    // this.filter();
   },
 };
 </script>
