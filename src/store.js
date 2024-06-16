@@ -17,17 +17,30 @@ if (typeof items.marked === 'undefined') {
       else  {
         items.marked = !items.marked      
       }
-      console.log(items.title,recommended.title);
+      state.bookmarkedData.push(items)
+            console.log(state.bookmarkedData,items);
+
     }
+      },
+      unbookmark(state,movie){
+        const items = state.cardData.find(i => i == movie);
+      if(items.title == movie.title){
+      state.bookmarkedData.splice(items,1)
+      items.marked = false
       }
+    }
   },
   actions: {
     bookmark(context,recommended) {
       context.commit('bookmark',recommended);
+    },
+    unbookmark(context,movie){
+      context.commit('unbookmark',movie)
     }
   },
   getters: {
-    marked: state => state.marked
+    bookmarkedData: state => state.bookmarkedData,
+    
   }
 });
 
