@@ -63,6 +63,7 @@
 </template>
 
 <script>
+import { watch } from "vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
   computed: {

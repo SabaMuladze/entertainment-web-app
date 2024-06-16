@@ -112,9 +112,7 @@ export default {
     const trendings = this.moviesData.filter((data) => data.isTrending);
     this.trendings = trendings;
   },
-  mounted() {
-    console.log(this.filteredMovies);
-  },
+  mounted() {},
   methods: {
     getData(data) {
       this.filteredData = data;

@@ -17,14 +17,18 @@ if (typeof items.marked === 'undefined') {
       else  {
         items.marked = !items.marked      
       }
-      state.bookmarkedData.push(items)
-            console.log(state.bookmarkedData,items);
+      if (items.marked ==true) {
+        state.bookmarkedData.push(items)
+      }
+      else{
+              state.bookmarkedData.splice(items,1)
+      }
 
     }
       },
       unbookmark(state,movie){
         const items = state.cardData.find(i => i == movie);
-      if(items.title == movie.title){
+      if(items.title == movie.title ){
       state.bookmarkedData.splice(items,1)
       items.marked = false
       }
