@@ -17,7 +17,7 @@ if (typeof items.marked === 'undefined') {
       else  {
         items.marked = !items.marked      
       }
-      if (items.marked ==true) {
+      if (items.marked ==true && !state.bookmarkedData.includes(items)) {
         state.bookmarkedData.push(items)
       }
       else{

@@ -99,7 +99,6 @@ export default {
       trendings: [],
       filteredData: [],
       filteredMovies: "",
-      copyData: [],
     };
   },
   components: {

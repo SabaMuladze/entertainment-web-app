@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import data from "../../../data.json";
 export default {
   inject: ["filteredMovies", "moviesData"],
   data() {
@@ -49,10 +48,6 @@ export default {
   created() {
     this.inputText = this.filteredMovies;
     this.filtdData = this.movData;
-    // this.sendData();
-  },
-  mounted() {
-    // this.filter();
   },
 };
 </script>
