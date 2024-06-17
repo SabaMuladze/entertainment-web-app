@@ -19,7 +19,10 @@
       <h2 v-if="mode == 'login'" class="text-3xl md:text-4xl">Login</h2>
       <h2 v-else class="text-3xl md:text-4xl">Sign Up</h2>
 
-      <form @submit.prevent="" class="flex flex-col gap-3 mt-3 md:gap-5">
+      <form
+        @submit.prevent="submitForm"
+        class="flex flex-col gap-3 mt-3 md:gap-5"
+      >
         <div class="border-b-cusgrey border-b-[1px]">
           <input
             v-model="email"
@@ -28,6 +31,7 @@
             placeholder="Email Address"
           />
         </div>
+        <p>{{ emailError }}</p>
         <div class="border-b-cusgrey border-b-[1px]">
           <input
             v-model="password"
@@ -36,6 +40,7 @@
             placeholder="Password"
           />
         </div>
+        <p>{{ passError }}</p>
         <div class="border-b-cusgrey border-b-[1px]" v-if="mode == 'signup'">
           <input
             v-model="checkpass"
@@ -45,10 +50,13 @@
           />
         </div>
         <button
+          type="submit"
           class="bg-cusred mt-3 py-3 rounded-lg hover:bg-white hover:text-black"
         >
-          <p v-if="mode == 'login'">Login to your account</p>
-          <p v-else>Create an account</p>
+          <p class="hover:text-black" v-if="mode == 'login'">
+            Login to your account
+          </p>
+          <p class="hover:text-black" v-else>Create an account</p>
         </button>
       </form>
       <p v-if="mode == 'login'" class="text-center">
@@ -71,10 +79,12 @@
 export default {
   data() {
     return {
-      mode: "login",
+      mode: "signup",
       email: "",
       password: "",
       checkpass: "",
+      emailError: "",
+      passError: "",
     };
   },
   methods: {
@@ -85,11 +95,44 @@ export default {
         this.mode = "login";
       }
     },
-    register() {
-      localStorage.setItem("email", this.email);
-      localStorage.setItem("password", this.password);
+    submitForm() {
+      this.validateEmail();
+      this.validatePass();
+      if (
+        this.mode == "signup" &&
+        this.password == this.checkpass &&
+        this.password.length >= 8
+      ) {
+        localStorage.setItem("email", this.email);
+        localStorage.setItem("password", this.password);
+
+        this.mode = "login";
+      } else {
+        if (
+          this.email == localStorage.getItem("email") &&
+          this.password == localStorage.getItem("password")
+        ) {
+          this.$router.push("/");
+        }
+      }
+    },
+    validateEmail() {
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+      if (!emailRegex.test(this.email)) {
+        this.emailError = "Invalid email address";
+      } else {
+        this.emailError = "";
+      }
+    },
+    validatePass() {
+      if (this.password.length < 8) {
+        this.passError = "Password must be at least eight characters long";
+      }
     },
   },
-  mounted() {},
+  mounted() {
+    console.log(localStorage, this.password, this.email);
+  },
 };
 </script>
