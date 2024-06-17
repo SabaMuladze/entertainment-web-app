@@ -131,8 +131,6 @@ export default {
       }
     },
   },
-  mounted() {
-    console.log(localStorage, this.password, this.email);
-  },
+  mounted() {},
 };
 </script>
