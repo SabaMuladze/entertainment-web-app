@@ -5,7 +5,7 @@ const store = createStore({
   state: {
     count: 0,
     bookmarkedData:[],
-    cardData:data
+    cardData:data,
   },
   mutations: {
     bookmark(state,recommended) {
