@@ -16,6 +16,11 @@ export default {
       return this.$route.path != "/auth";
     },
   },
+  mounted() {
+    if (performance.navigation.type === 1) {
+      window.location.pathname = "/";
+    }
+  },
 };
 </script>
 
